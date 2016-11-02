@@ -18,7 +18,9 @@ public class Main
 		String[] query = {"Query", " Query1", "Query2", "Query3"};
 		JComboBox combo = new JComboBox(query);
 		
+		combo.setAlignmentY(590);
 		panelWest.add(combo);
+		
 		frame.add(panelWest, BorderLayout.WEST);
 	
 		JPanel panelNorth = new JPanel();
