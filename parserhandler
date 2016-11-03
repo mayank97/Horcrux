@@ -1,0 +1,69 @@
+package proj;
+
+import java.util.*;
+import java.util.Stack;
+
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
+public class parserhandler extends DefaultHandler{
+	static int num=0;
+	ArrayList <dblp> userlist=new ArrayList<dblp>();
+	Stack es=new Stack<>();
+	Stack os=new Stack<article>();
+	public void startDocument()
+	{
+		System.out.println("starting the doc");
+	}
+	public void endDocument(){
+		System.out.println("end the doc");
+	}
+	public void startElement(String uri,String localname,String qName,Attributes attributes)throws SAXException{
+		this.es.push(qName);
+		if("article".equals(qName)){
+			article a=new article();
+			this.os.push(a);
+			
+		}
+	
+	}
+	public void endElement(String uri,String localname,String qName,Attributes attributes)
+	{
+		this.es.pop();
+		if("article".equals(qName))
+		{
+			Object var= this.os.pop();
+			this.userlist.add((dblp) var);
+		}
+	}	
+	public void character(char []ch,int start,int length) throws SAXException
+	{
+		String value=new String (ch,start,length);
+		if(value.length()==0)
+		{
+			System.out.println("returning");
+			return;
+		}
+		if("title".equals(current()))
+		{System.out.println("inside char");
+			article var=(article)this.os.peek();
+			var.settitle(value);
+			System.out.println(var.gettitle());
+		}
+	}
+	String current(){
+		return (String) this.es.peek();
+	}
+	ArrayList getusers(){
+		return userlist;
+	}
+	void print (){
+		
+		for(dblp x: userlist)
+		{
+			System.out.println( x.gettitle());
+		}
+	}
+	
+}
