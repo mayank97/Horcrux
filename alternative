@@ -1,35 +1,37 @@
-package bleh;
+package proj;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
-import javax.swing.text.Document;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
-
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-class Person {
-public static void main(String[] args) throws SAXException, IOException,
-        ParserConfigurationException, TransformerException {
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.XMLReaderFactory;
 
-    DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
-            .newInstance();
-    docBuilderFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-    DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-    
-    document =  docBuilder.parse(new File("C:\\Users\\Dewansh gautam\\workspace\\bleh\\dblp.xml"));
-    
-    NodeList nodeList = ((org.w3c.dom.Document) document).getElementsByTagName("*");
-    for (int i = 0; i < nodeList.getLength(); i++) {
-        Node node = nodeList.item(i);
-        if (node.getNodeType() == Node.ELEMENT_NODE) {
-            // do something with the current element
-            System.out.println(node.getLocalName());
-        }
-    }
-}
+public class userxmlparser {
+	public ArrayList parserxml(InputStream in){
+		ArrayList<article>articles=new ArrayList<article>();
+		try{
+			parserhandler handler= new parserhandler();
+			XMLReader parser=XMLReaderFactory.createXMLReader();
+			parser.setContentHandler(handler);
+			//parser.set
+			InputSource source =new InputSource(in);
+			parser.parse(source);
+			articles=handler.getusers();
+			handler.print();
+			System.out.println("printing");
+			System.out.println(articles);
+			
+		}
+		catch(SAXException  e){
+			e.printStackTrace();
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return articles;
+	}
 }
