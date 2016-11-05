@@ -48,12 +48,8 @@ public class Main
 	JButton start;
 	JButton exit, op1, op2, op3, op4, situation;
 	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9;
-	private char[][] checkboard;
-	char p1, p2, superp;
-	int currx, curry, p;
-	String P1name, P2name;
-
-	Tic_Tac_Toe() {
+	
+	void func() {
 		initialiser();
 
 	}
@@ -64,7 +60,6 @@ public class Main
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		frame.getContentPane().setLayout(null);
-		label = new JLabel("TIC TAC TOE!");
 		label.setBounds(200, 10, 150, 40);
 		frame.getContentPane().add(label);
 		start = new JButton("START GAME");
