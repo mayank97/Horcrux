@@ -42,6 +42,53 @@ public class Main
 		frame.add(panelCenter, BorderLayout.CENTER);
 		
 		frame.setVisible(true);
+		JFrame frame;
+	public static int counter=0;
+	JLabel label;
+	JButton start;
+	JButton exit, op1, op2, op3, op4, situation;
+	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9;
+	private char[][] checkboard;
+	char p1, p2, superp;
+	int currx, curry, p;
+	String P1name, P2name;
+
+	Tic_Tac_Toe() {
+		initialiser();
+
+	}
+
+	void initialiser() {
+		frame = new JFrame();
+		frame.setBounds(500, 500, 500, 500);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.getContentPane().setLayout(null);
+		label = new JLabel("TIC TAC TOE!");
+		label.setBounds(200, 10, 150, 40);
+		frame.getContentPane().add(label);
+		start = new JButton("START GAME");
+		frame.getContentPane().add(start);
+		start.setBounds(150, 100, 150, 50);
+		exit = new JButton("EXT");
+		frame.getContentPane().add(exit);
+		exit.setBounds(150, 250, 150, 50);
+		start.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				options();
+
+			}
+
+		});
+		exit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+	}
 		
 	}
 }
