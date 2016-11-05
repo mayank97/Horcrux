@@ -2,12 +2,15 @@ package dblp;
 
 public class DBLPObject 
 {
-	protected String mdate;
-	protected String key;
-	protected String author;
-	protected String title;
-	protected String url;
-	protected int year;
+	String title;
+String gettitle(){return title;}
+@Override
+public String toString(){
+	return this.title;
+}
+void settitle(String x){
+	title=x;
+}
 	
 	
 }
