@@ -23,4 +23,21 @@ public class Article
 	{
 		return this.ee;
 	}
+	
+	public void setPages(String page)
+	{
+		this.pages = pages;
+	}
+	public void setVolume(String vol)
+	{
+		this.volume = vol;
+	}
+	public void setJournal(String jour)
+	{
+		this.journal = jour;
+	}
+	public void setEE(String EE)
+	{
+		this.ee = EE;
+	}
 }
