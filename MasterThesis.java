@@ -8,4 +8,9 @@ public class MasterThesis
 	{
 		return this.school;
 	}
+	
+	public void setSchool(String School)
+	{
+		this.school = School;
+	}
 }
