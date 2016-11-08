@@ -1,6 +1,6 @@
 package dblp;
 
-public class Proceedings 
+public class Proceedings extends DBLPObject
 {
 	private String editor;
 	private String volume;
@@ -38,4 +38,34 @@ public class Proceedings
 	{
 		return this.publisher;
 	}
+	
+	public void setEditor(String editor)
+	{
+		this.editor = editor;
+	}
+	public void setVolume(String volume)
+	{
+		this.volume = volume;
+	}
+	public void setEE(String ee)
+	{
+		this.ee = ee;
+	}
+	public void setISBN(String ISBN)
+	{
+		this.isbn = ISBN;
+	}
+	public void setBookTitle(String title)
+	{
+		this.booktitle = title;
+	}
+	public void setSeries(String series)
+	{
+		this.series = series;
+	}
+	public void setPublisher(String publisher)
+	{
+		this.publisher = publisher;
+	}
+	
 }
