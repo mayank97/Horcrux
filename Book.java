@@ -39,5 +39,35 @@ public class Book extends DBLPObject
 	{
 		return this.ee;
 	}
+	
+	public void setEditor(String editor)
+	{
+		this.editor = editor;
+	}
+	public void setSeries(String series)
+	{
+		this.series = series;
+	}
+	public void setVolume(int volume)
+	{
+		this.volume = volume;
+	}
+	public void setPublisher(String publisher)
+	{
+		this.publisher = publisher;
+	}
+	public void setISBN(String isbn)
+	{
+		this.isbn = isbn;
+	}
+	public void setBookTitle(String booktitle)
+	{
+		this.booktitle = booktitle;
+	}
+	public void setEE(String ee)
+	{
+		this.ee = ee;
+	}
+	
 }
 
