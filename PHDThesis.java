@@ -18,17 +18,4 @@ public class PHDThesis extends DBLPObject
 	{
 		return this.note;
 	}
-	
-	public void setSchool(String school)
-	{
-		this.school  = school;
-	}
-	public void setEE(String ee)
-	{
-		this.ee = ee;
-	}
-	public void setNote(String note)
-	{
-		this.note = note;
-	}
 }
