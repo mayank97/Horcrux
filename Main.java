@@ -2,9 +2,12 @@ package dblp;
 
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 public class Main 
 {
+	private static final int Y_AXIS = 0;
+
 	public static void main(String[] agrs)
 	{
 		JFrame frame = new JFrame();
@@ -13,16 +16,88 @@ public class Main
 		frame.setSize(900,800);
 		
 		JPanel panelWest = new JPanel();
-		panelWest.setLayout(new FlowLayout());
-	
+		panelWest.setLayout(new BorderLayout());
+		
+		JPanel comboPanel = new JPanel();
 		String[] query = {"Query", " Query1", "Query2", "Query3"};
 		JComboBox combo = new JComboBox(query);
+
 		
-		combo.setAlignmentY(590);
-		panelWest.add(combo);
+		combo.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent e)
+					{
+						String s = (String) combo.getSelectedItem();
+						System.out.println(s);
+						if((s).equals("Query1"))
+						{
+							panelWest.revalidate();
+							JPanel newPanelWest = new JPanel();
+							
+							newPanelWest.setLayout(new FlowLayout());
+							
+							
+						}
+						else if((s).equals("Query2"))
+						{	panelWest.revalidate();
+						
+							JPanel newPanelWest = new JPanel();
+							newPanelWest.setLayout(new FlowLayout());
+							JLabel label = new JLabel("No. of Publications : ");
+							newPanelWest.add(label);
+							JTextField number = new JTextField(5);
+							
+							newPanelWest.add(number);
+							
+							JButton Search = new JButton("Search");
+										Search.addActionListener(new ActionListener()
+												{
+													public void actionPerformed(ActionEvent e)
+													{
+														try
+														{
+																int j = Integer.parseInt(number.getText());
+
+																JOptionPane.showMessageDialog(newPanelWest, "good keep going.");
+													
+														}
+														catch(NumberFormatException z)
+														{
+															JOptionPane.showMessageDialog(newPanelWest, "Invalid Query. Enter a valid Query to proceed.");
+															number.setText("");
+														}
+														
+													}
+												});
+							JButton Reset = new JButton("Reset");
+										Reset.addActionListener(new ActionListener()
+												{
+													public void actionPerformed(ActionEvent e)
+													{
+														number.setText("");
+													}
+												});
+							
+							newPanelWest.add(Search);
+							newPanelWest.add(Reset);
+							//frame.add(newPanelWest, BorderLayout.WEST);
+							
+							comboPanel.add(newPanelWest, BorderLayout.CENTER);
+							panelWest.add(comboPanel);
+						}
+						else if((s).equals("Query3"))
+						{
+							
+						}
+					}
+				}
+			);
+
 		
+		comboPanel.add(combo, BorderLayout.NORTH);
+		panelWest.add(comboPanel);
 		frame.add(panelWest, BorderLayout.WEST);
-	
+
 		JPanel panelNorth = new JPanel();
 		JLabel label = new JLabel("<html><u>DBLP Query Engine</u></html>");
 		label.setFont(new Font("Serif", Font.BOLD, 48));
@@ -42,48 +117,11 @@ public class Main
 		frame.add(panelCenter, BorderLayout.CENTER);
 		
 		frame.setVisible(true);
-		JFrame frame;
-	public static int counter=0;
-	JLabel label;
-	JButton start;
-	JButton exit, op1, op2, op3, op4, situation;
-	JButton b1, b2, b3, b4, b5, b6, b7, b8, b9;
+		
+	}
 	
-	void func() {
-		initialiser();
-
-	}
-
-	void initialiser() {
-		frame = new JFrame();
-		frame.setBounds(500, 500, 500, 500);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setVisible(true);
-		frame.getContentPane().setLayout(null);
-		label.setBounds(200, 10, 150, 40);
-		frame.getContentPane().add(label);
-		start = new JButton("START GAME");
-		frame.getContentPane().add(start);
-		start.setBounds(150, 100, 150, 50);
-		exit = new JButton("EXT");
-		frame.getContentPane().add(exit);
-		exit.setBounds(150, 250, 150, 50);
-		start.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				options();
-
-			}
-
-		});
-		exit.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				System.exit(0);
-			}
-		});
-	}
+	public void Query1()
+	{
 		
 	}
 }
