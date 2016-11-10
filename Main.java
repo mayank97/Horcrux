@@ -36,6 +36,42 @@ public class Main
 							
 							newPanelWest.setLayout(new FlowLayout());
 							
+							String[] SearchBy = {"Search1", "Search2"};
+							JComboBox combo2 = new JComboBox(SearchBy);
+							
+							newPanelWest.add(combo2);
+							//have to add search 1 and 2 actionlisteners
+							
+							JLabel label = new JLabel("Name/Title tags : ");
+							newPanelWest.add(label);
+							JTextField text = new JTextField(5);
+							newPanelWest.add(text);
+							
+							JLabel yearLabel = new JLabel("Since Year : ");
+							newPanelWest.add(yearLabel);
+							JTextField year = new JTextField(4);
+							newPanelWest.add(year);
+							
+							JLabel range = new JLabel("Custom Range : ");
+							newPanelWest.add(range);
+							
+							JTextField from = new JTextField(4);
+							JTextField to = new JTextField(4);
+							
+							JLabel hash = new JLabel(" - ");
+							
+							newPanelWest.add(from);
+							newPanelWest.add(hash);
+							newPanelWest.add(to);
+							
+							JButton Search = new JButton("Search");
+							JButton Reset = new JButton("Reset");
+							
+							newPanelWest.add(Search);
+							newPanelWest.add(Reset);
+							
+							
+							
 							
 						}
 						else if((s).equals("Query2"))
