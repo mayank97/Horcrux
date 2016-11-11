@@ -6,17 +6,6 @@ public class Inproceedings extends DBLPObject
 	private String booktitle;
 	private String crossref;
 	
-	public String getPages()
-	{
-		return this.pages;
-	}
-	public String getBookTitle()
-	{
-		return this.booktitle;
-	}
-	public String getCrossref()
-	{
-		return this.crossref;
 	}
 	
 	public void setPages(String page)

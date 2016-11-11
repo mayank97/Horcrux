@@ -24,4 +24,21 @@ public class Incollection
 		return this.ee;
 	}
 	
+	public void setPages(String pages)
+	{
+		this.pages = pages;
+	}
+	public void setCeossRef(String crossRef)
+	{
+		this.crossref = crossRef;
+	}
+	public void setBookTitle(String title)
+	{
+		this.booktitle = title;
+	}
+	public void setEE(String eee)
+	{
+		this.ee = eee;
+	}
+	
 }
